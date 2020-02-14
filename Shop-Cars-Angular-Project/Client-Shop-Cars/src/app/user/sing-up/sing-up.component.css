@@ -108,6 +108,10 @@
     color: white;
     background-color: #3b5998;
   }
+
+  .container {
+    padding-top: 5%;
+  }
   
   /* Fallback for Edge
   -------------------------------------------------- */

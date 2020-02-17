@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdCarsService } from '../ad-cars.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private adCarsService: AdCarsService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  createCauseHandler(data) {
+    console.log(data);
+    
+    this.adCarsService.create(data).subscribe(() => {
+      this.router.navigate(['']);
+    });
+
+  };
 }
+

@@ -5,7 +5,7 @@ const config = require('../config/config');
 
 module.exports = (app) => {
 
-    app.get('/auth', (req, res) => {
+    app.get('/api/auth', (req, res) => {
         const token = req.cookies[config.authCookieName];
         utils.jwt.verifyToken(token)
             .then(({ id }) => models.User.findById(id))

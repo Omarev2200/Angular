@@ -11,19 +11,19 @@ module.exports = {
 
   post: {
     register: (req, res, next) => {
-      const {  username, password } = req.body;
-      models.User.create({ username, password })
+      const {  email, password } = req.body;
+      models.User.create({ email, password })
         .then((createdUser) => res.send(createdUser))
         .catch(next)
     },
 
     login: (req, res, next) => {
-      const { username, password } = req.body;
-      models.User.findOne({ username })
+      const { email, password } = req.body;
+      models.User.findOne({ email })
         .then((user) => !!user ? Promise.all([user, user.matchPassword(password)]) : [null, false])
         .then(([user, match]) => {
           if (!match) {
-            res.status(401).send('Invalid username or password');
+            res.status(401).send('Invalid email or password');
             return;
           }
 

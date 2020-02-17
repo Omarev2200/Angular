@@ -1,26 +1,30 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { SingInComponent } from '../user/sing-in/sing-in.component';
 import { SingUpComponent } from '../user/sing-up/sing-up.component';
 import { ProfileComponent } from '../user/profile/profile.component';
-import { LogoutComponent } from '../user/logout/logout.component';
+
+
 
 @NgModule({
   declarations: [
     SingInComponent,
     SingUpComponent,
     ProfileComponent,
-    LogoutComponent,
+    
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
+    
   ],
-  exports: [
+  exports:[
     SingInComponent,
     SingUpComponent,
     ProfileComponent,
-    LogoutComponent,
   ]
+ 
 })
 export class UserModule { }

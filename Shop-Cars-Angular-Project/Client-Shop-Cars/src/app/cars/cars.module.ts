@@ -5,6 +5,7 @@ import { DeleteComponent } from './delete/delete.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -16,13 +17,15 @@ import { CreateComponent } from './create/create.component';
     EditComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
-  exports: [
+  exports:[
     CreateComponent, 
     DeleteComponent, 
     DetailsComponent, 
     EditComponent
   ]
+ 
 })
 export class CarsModule { }

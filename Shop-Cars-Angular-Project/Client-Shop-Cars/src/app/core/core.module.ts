@@ -9,17 +9,20 @@ import { RouterModule } from '@angular/router';
 
 
 @NgModule({
-  declarations: [NavigationComponent,
+  declarations: [
+     NavigationComponent,
      FooterComponent,
-     SpinnerComponent],
+     SpinnerComponent
+    ],
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports: [
+  exports:[
     NavigationComponent,
-    SpinnerComponent,
-    FooterComponent
+    FooterComponent,
+    SpinnerComponent
   ]
+ 
 })
 export class CoreModule { }

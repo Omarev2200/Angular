@@ -1,3 +1,6 @@
-<app-navigation></app-navigation>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<ng-container *ngIf="!isReady"> <app-spinner></app-spinner></ng-container>
+<ng-container *ngIf="isReady">
+    <app-navigation></app-navigation>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+</ng-container>

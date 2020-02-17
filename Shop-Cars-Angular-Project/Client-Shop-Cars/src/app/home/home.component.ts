@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdCarsService } from '../cars/ad-cars.service';
+import { ICar } from '../shared/car';
 
 @Component({
   selector: 'app-home',
@@ -8,14 +9,19 @@ import { AdCarsService } from '../cars/ad-cars.service';
 })
 export class HomeComponent implements OnInit {
 
-  get adCars() { return this.carsService.adCars; }
+ adCars:ICar;
 
   constructor(private carsService:AdCarsService) { }
 
   ngOnInit(): void {
     this.carsService.load().subscribe(data => {
-      console.log(data)
-    })
+      this.adCars=data;
+      console.log(data);
+      
+    }
+
+
+    )
   }
 
 }

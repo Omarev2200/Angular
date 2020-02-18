@@ -6,6 +6,8 @@ import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { CheckPipe } from './check.pipe';
 
 
 
@@ -14,11 +16,13 @@ import { FormsModule } from '@angular/forms';
     CreateComponent, 
     DeleteComponent, 
     DetailsComponent, 
-    EditComponent
+    EditComponent,
+    CheckPipe
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports:[
     CreateComponent, 

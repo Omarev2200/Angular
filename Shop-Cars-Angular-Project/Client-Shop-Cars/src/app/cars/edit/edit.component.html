@@ -1,1 +1,165 @@
-<p>edit works!</p>
+<div class="container" *ngIf="adCar">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Edit Ad Car</h5>
+            <form #editForm='ngForm' class="form-signin" (ngSubmit)="editAdCarHandler(editForm.value)">
+              <label for="inputEmail">
+                Model
+              </label>
+              <div class="form-label-group">
+                <input 
+                #modelInput="ngModel" 
+                type="text" 
+                [(ngModel)]='adCar.model'
+                name='model' 
+                
+                id="inputModel" 
+                class="form-control"
+                required>
+              </div>
+              <!-- <div class="alert alert-danger" role="alert" *ngIf="emailInput.invalid && emailInput.touched">
+                Please enter valid email!
+              </div> -->
+
+              <label for="inputEmail">
+                Price
+              </label>
+              <div class="form-label-group">
+                <input 
+                #priceInput="ngModel" 
+                type="text" 
+                [(ngModel)]='adCar.price' 
+                name='price' 
+                id="inputPrice" 
+                class="form-control"
+                required>
+              </div>
+              
+              <label for="inputEmail">
+                ImgUrl
+              </label>
+              <div class="form-label-group">
+                <input 
+                #imgUrlInput="ngModel" 
+                type="text" 
+                [(ngModel)]='adCar.imgUrl' 
+                name='imgUrl' 
+                id="inputImgUrl" 
+                class="form-control"
+                required>
+              </div>
+              
+
+              <label for="inputEmail">
+                Mileage
+              </label>
+              <div class="form-label-group">
+                <input 
+                #mileageInput="ngModel" 
+                type="text" 
+                [(ngModel)]='adCar.mileage' 
+                name='mileage' 
+                id="inputMileage" 
+                class="form-control"
+                required>
+              </div>
+              
+  
+              <label for="inputEmail">
+                Year
+              </label>
+              <div class="form-label-group">
+                <input 
+                #yearInput="ngModel" 
+                type="text" 
+                [(ngModel)]='adCar.year' 
+                name='year' 
+                id="inputYear" 
+                class="form-control"
+                required>
+              </div>
+              
+
+              <label for="inputEmail">
+                Description
+              </label>
+              <div class="form-label-group">
+                <input 
+                #descriptionInput="ngModel" 
+                type="text" 
+                [(ngModel)]='adCar.description' 
+                name='description' 
+                id="inputDescription" 
+                class="form-control"
+                required>
+              </div>
+              
+
+              <label for="inputEmail">
+                Contact
+              </label>
+              <div class="form-label-group">
+                <input 
+                #contactlInput="ngModel" 
+                type="text" 
+                [(ngModel)]='adCar.contact' 
+                name='contact' 
+                id="inputContact" 
+                class="form-control"
+                required>
+              </div>
+
+              <label for="inputEmail">
+                Engine
+              </label>
+              <div class="form-label-group">
+                <input 
+                #enginelInput="ngModel" 
+                type="text" 
+                [(ngModel)]='adCar.engine' 
+                name='engine' 
+                id="inputEngine" 
+                class="form-control"
+                required>
+              </div>
+
+              <label for="inputEmail">
+                Speed
+              </label>
+              <div class="form-label-group">
+                <input 
+                #speedlInput="ngModel" 
+                type="text" 
+                [(ngModel)]='adCar.speed' 
+                name='speed' 
+                id="inputSpeed" 
+                class="form-control"
+                required>
+              </div>
+
+              <label for="inputEmail">
+                Color
+              </label>
+              <div class="form-label-group">
+                <input 
+                #colorlInput="ngModel" 
+                type="text" 
+                [(ngModel)]='adCar.color' 
+                name='color' 
+                id="inputColor" 
+                class="form-control"
+                required>
+              </div>
+              
+              
+              <button  class="btn btn-lg btn-primary btn-block text-uppercase" > 
+                Edit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

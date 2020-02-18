@@ -1,1 +1,76 @@
-<p>details works!</p>
+Edit in JSFiddle
+Result
+HTML
+CSS
+JavaScript
+Resources
+<!-- Page Content -->
+<div class="container" *ngIf="adCar">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4">{{adCar.model}}
+    <small>€{{adCar.price}}</small>
+  </h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <img class="img-fluid" [src]="adCar.imgUrl" alt="">
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">Description</h3>
+      <p>{{adCar.description}}</p>
+      <h3 class="my-3">Other  Details</h3>
+      <ul>
+        <li>Price: {{adCar.price}}</li>
+        <li>Year: {{adCar.year}}</li>
+        <li>Engine: {{adCar.engine}}</li>
+        <li>Speed: {{adCar.speed}}</li>
+        <li>Color: {{adCar.color}}</li>
+      </ul>
+      <div *ngIf="adCar | check">
+          <button type="button" class="btn btn-danger btn-lg btn-block" (click)=deletAdCar()>Delete</button>
+      <button routerLink="/edit/{{adCar._id}}"  class="btn btn-warning btn-lg btn-block">Edit</button>
+      </div>
+    </div>
+    
+
+  </div>
+  <!-- /.row -->
+
+  <!-- Related Projects Row -->
+  
+
+  <div class="row">
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+            <img class="img-fluid" [src]="adCar.imgUrl" alt="">
+          </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+            <img class="img-fluid" [src]="adCar.imgUrl" alt="">
+          </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+            <img class="img-fluid" [src]="adCar.imgUrl" alt="">
+          </a>
+    </div>
+
+    <div class="col-md-3 col-sm-6 mb-4">
+      <a href="#">
+            <img class="img-fluid" [src]="adCar.imgUrl" alt="">
+          </a>
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->

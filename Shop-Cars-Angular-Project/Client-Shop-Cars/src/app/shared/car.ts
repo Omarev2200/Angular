@@ -1,4 +1,7 @@
+import { IUser } from './user';
+
 export interface ICar {
+    _id:string
     model:string,
     price:string,
     imgUrl:string,
@@ -8,6 +11,7 @@ export interface ICar {
     contact:string,
     engine:string,
     speed:string,
-    color:string
+    color:string,
+    author:string
 
 }

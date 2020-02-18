@@ -4,7 +4,7 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Create Ad Car</h5>
-            <form #createForm='ngForm' class="form-signin" (ngSubmit)="createCauseHandler(createForm.value)">
+            <form #createForm='ngForm' class="form-signin" (ngSubmit)="createAdCarHandler(createForm.value)">
               <label for="inputEmail">
                 Model
               </label>
@@ -18,11 +18,11 @@
                 class="form-control"
                 required>
               </div>
-              <!-- <div class="alert alert-danger" role="alert" *ngIf="emailInput.invalid && emailInput.touched">
+              <div class="alert alert-danger" role="alert" *ngIf="modelInput.invalid && modelInput.touched">
                 Please enter valid email!
-              </div> -->
+              </div>
 
-              <label for="inputEmail">
+              <label for="priceInput">
                 Price
               </label>
               <div class="form-label-group">
@@ -33,10 +33,14 @@
                 name='price' 
                 id="inputPrice" 
                 class="form-control"
+                pattern = "[0-9]+"
                 required>
               </div>
+              <div class="alert alert-danger" role="alert" *ngIf="priceInput.invalid && priceInput.touched">
+                Please enter only numbers!
+              </div>
               
-              <label for="inputEmail">
+              <label for="imgUrlInput">
                 ImgUrl
               </label>
               <div class="form-label-group">
@@ -46,12 +50,17 @@
                 ngModel 
                 name='imgUrl' 
                 id="inputImgUrl" 
+                placeholder="https://..."
+                pattern="https?:\/\/.*"
                 class="form-control"
                 required>
               </div>
+              <div class="alert alert-danger" role="alert" *ngIf="imgUrlInput.invalid && imgUrlInput.touched">
+                Please enter only :https://
+              </div>
               
 
-              <label for="inputEmail">
+              <label for="mileageInput">
                 Mileage
               </label>
               <div class="form-label-group">
@@ -62,11 +71,15 @@
                 name='mileage' 
                 id="inputMileage" 
                 class="form-control"
+                pattern = "[0-9]+"
                 required>
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="mileageInput.invalid && mileageInput.touched">
+                Please enter only numbers!
               </div>
               
   
-              <label for="inputEmail">
+              <label for="yearInput">
                 Year
               </label>
               <div class="form-label-group">
@@ -77,11 +90,15 @@
                 name='year' 
                 id="inputYear" 
                 class="form-control"
+                pattern = "[0-9]+"
                 required>
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="yearInput.invalid && yearInput.touched">
+                Please enter only numbers!
               </div>
               
 
-              <label for="inputEmail">
+              <label for="descriptionInput">
                 Description
               </label>
               <div class="form-label-group">
@@ -92,7 +109,12 @@
                 name='description' 
                 id="inputDescription" 
                 class="form-control"
+                min="10"
+                max="50"
                 required>
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="descriptionInput.invalid && descriptionInput.touched">
+                Please enter min 10 letters max 50 !
               </div>
               
 

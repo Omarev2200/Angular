@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class NavigationComponent implements OnInit {
 
   get isLogged() { return this.userService.isLogged; }
+  get userEmail () {return this.userService.currentUser.email}
 
   constructor(private userService:UserService, private router:Router) { }
 
@@ -17,9 +18,11 @@ export class NavigationComponent implements OnInit {
 
   }
   logout() {
-    this.userService.logout().subscribe(() => {
+    this.userService.logout().subscribe((data) => {
       
       this.router.navigate(['']);
+      console.log(data);
+      
     });
   }
   

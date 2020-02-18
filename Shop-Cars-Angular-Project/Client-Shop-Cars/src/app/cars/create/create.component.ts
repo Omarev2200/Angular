@@ -14,7 +14,7 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createCauseHandler(data) {
+  createAdCarHandler(data) {
     console.log(data);
     
     this.adCarsService.create(data).subscribe(() => {

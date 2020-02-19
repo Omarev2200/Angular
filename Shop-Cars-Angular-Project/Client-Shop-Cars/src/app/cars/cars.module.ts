@@ -8,6 +8,8 @@ import { CreateComponent } from './create/create.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CheckPipe } from './check.pipe';
+import { MyAdCarsComponent } from './my-ad-cars/my-ad-cars.component';
+
 
 
 
@@ -17,7 +19,9 @@ import { CheckPipe } from './check.pipe';
     DeleteComponent, 
     DetailsComponent, 
     EditComponent,
-    CheckPipe
+    CheckPipe,
+    MyAdCarsComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -28,7 +32,9 @@ import { CheckPipe } from './check.pipe';
     CreateComponent, 
     DeleteComponent, 
     DetailsComponent, 
-    EditComponent
+    EditComponent,
+    MyAdCarsComponent,
+    
   ]
  
 })

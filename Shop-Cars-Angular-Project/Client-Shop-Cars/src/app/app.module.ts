@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { AppInterceptor } from './app-interceptor';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -36,6 +37,7 @@ import { AppInterceptor } from './app-interceptor';
     CoreModule,
     UserModule,
     CarsModule,
+    FormsModule
     
   ],
   providers: [

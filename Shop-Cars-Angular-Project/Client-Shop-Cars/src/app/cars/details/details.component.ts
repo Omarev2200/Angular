@@ -4,6 +4,7 @@ import { AdCarsService } from '../ad-cars.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IUser } from 'src/app/shared/user';
 import { UserService } from 'src/app/user/user.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-details',
@@ -21,7 +22,8 @@ id : string;
     private adCarsService : AdCarsService, 
     private userService: UserService,
     private route : ActivatedRoute,
-    private router : Router) { 
+    private router : Router,
+    private toastr:ToastrService) { 
       
     }
 
@@ -39,8 +41,8 @@ id : string;
   deletAdCar() {
     this.adCarsService.deleteAdCar(this.id)
     .subscribe((data) => {
-      
-      this.router.navigate(['']);
+      this.toastr.success('success', 'Delete')
+      this.router.navigate([`/myAdCars/${this.id}`]);
       console.log(data);
     } )
 

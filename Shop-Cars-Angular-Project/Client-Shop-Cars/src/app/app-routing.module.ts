@@ -4,10 +4,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SingInComponent } from './user/sing-in/sing-in.component';
 import { SingUpComponent } from './user/sing-up/sing-up.component';
 import { CreateComponent } from './cars/create/create.component';
-import { AuthArticleGuard } from './authArticle.guard';
-import { SingInsingUpGuard } from './sing-insing-up.guard';
+import { AuthGuard } from './auth.guard';
+
 import { DetailsComponent } from './cars/details/details.component';
 import { EditComponent } from './cars/edit/edit.component';
+import { MyAdCarsComponent } from './cars/my-ad-cars/my-ad-cars.component';
+import { ProfileComponent } from './user/profile/profile.component';
+
 
 
 const routes: Routes = [
@@ -20,19 +23,20 @@ const routes: Routes = [
     path: 'singin',
     component: SingInComponent,
     
-   
-  
   },
   {
     path: 'singup',
     component: SingUpComponent,
     
+   
     
   },
   {
     path: 'create',
     component: CreateComponent,
-    canActivate:[AuthArticleGuard]
+    canActivate:[AuthGuard],
+   
+
   },
   {
     path: 'detail/:id',
@@ -42,6 +46,20 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: EditComponent
+    
+  },
+  {
+    path: 'myAdCars/:id',
+    component: MyAdCarsComponent,
+    canActivate:[AuthGuard]
+    
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate:[AuthGuard],
+   
+
     
   },
   

@@ -1,0 +1,18 @@
+<div class="row" *ngIf="adCars"> 
+    
+    <div class="col-md-4 mb-5" *ngFor='let adCar of adCars'>
+    <div class="card h-100" >
+      <img class="card-img-top" [src]="adCar.imgUrl" alt="">
+      <div class="card-body">
+        <h4 class="card-title">{{adCar.model}}</h4>
+        <h5 class="card-price">{{adCar.price}} €</h5>
+        <p class="card-text">{{adCar.description}}</p>
+      </div>
+      <div class="card-footer">
+        <a routerLink= '/detail/{{adCar._id}}' class="btn btn-primary">More Info</a>
+      </div>
+    </div>
+  </div>
+  
+  
+</div>

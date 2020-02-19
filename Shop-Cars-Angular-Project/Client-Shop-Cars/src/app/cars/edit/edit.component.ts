@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdCarsService } from '../ad-cars.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ICar } from 'src/app/shared/car';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit',
@@ -14,7 +15,8 @@ export class EditComponent implements OnInit {
   constructor(
     private adCarsService: AdCarsService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr : ToastrService
 
   ) { }
 
@@ -33,7 +35,8 @@ export class EditComponent implements OnInit {
   editAdCarHandler(data) {
     this.adCarsService.editSdCar(this.id,data)
     .subscribe(()=> {
-      this.router.navigate([''])
+      this.toastr.success('success', 'Edit')
+      this.router.navigate([`/myAdCars/${this.id}`])
     })
   }
 

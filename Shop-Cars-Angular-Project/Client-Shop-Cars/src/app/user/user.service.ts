@@ -11,14 +11,14 @@ export class UserService {
 
   currentUser: IUser;
   
-
   get isLogged() { return !!this.currentUser; }
-  authCompleted$ = this.http.get("auth").pipe(shareReplay(1));
-
+ 
 
   constructor(private http: HttpClient, private router: Router) {
-    this.authCompleted$.subscribe((user: any) => {
+    this.http.get("auth").subscribe((user: any) => {
       this.currentUser = user;
+     
+      
     }, () => {
       this.currentUser = null;
     });
@@ -31,14 +31,15 @@ export class UserService {
   login(email: string, password: string) {
     return this.http.post('user/login', { email, password }).pipe(tap((user: any) => {
       this.currentUser = user;
-      console.log(user);
+      
+      console.log(this.isLogged);
       
     }));
   }
 
   logout() {
     return this.http.post('user/logout', {}).pipe(tap(() => {
-      window.location.href = '/'
+      this.router.navigate(['']);
       this.currentUser = null;
       
     }));

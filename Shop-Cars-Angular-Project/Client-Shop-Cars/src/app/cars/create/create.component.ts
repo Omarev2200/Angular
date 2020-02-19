@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdCarsService } from '../ad-cars.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create',
@@ -8,17 +9,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-
-  constructor(private adCarsService: AdCarsService, private router: Router) { }
+  id: string;
+  constructor(
+    private adCarsService: AdCarsService,
+    private router: Router, private toastr: ToastrService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
   }
 
   createAdCarHandler(data) {
-    console.log(data);
-    
+    this.id = this.route.snapshot.params['id'];
+
     this.adCarsService.create(data).subscribe(() => {
-      this.router.navigate(['']);
+      this.toastr.success('success', 'Create')
+      this.router.navigate([`/myAdCars/${this.id}`]);
     });
 
   };

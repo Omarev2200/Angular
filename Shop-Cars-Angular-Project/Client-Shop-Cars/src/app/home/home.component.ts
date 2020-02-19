@@ -16,7 +16,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.carsService.load().subscribe(data => {
       this.adCars=data;
-      console.log(data);
+      
+      
+      
       
     }
 

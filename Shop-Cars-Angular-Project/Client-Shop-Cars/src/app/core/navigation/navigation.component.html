@@ -1,34 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/">Shop Cars</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/create">Create</a>
+      </li>
+      <li class="nav-item active" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/myAdCars/{{userId}}">My Ad Cars</a>
+      </li>
+      <li class="nav-item active" *ngIf="isLogged">
+        <a class="nav-link" routerLink="/profile">{{userEmail}}</a>
+      </li>
+      <li class="nav-item" *ngIf="!isLogged">
+        <a class="nav-link" routerLink="/singin">SingIn</a>
+      </li>
+      <li class="nav-item" *ngIf="!isLogged">
+        <a class="nav-link" routerLink="/singup">SingUp</a>
+      </li>
+      
+    </ul>
+    <form #formSearch='ngForm' class="form-inline my-2 my-lg-0" (submit)='search(formSearch.value)'>
+      <input class="form-control mr-sm-2" type="text" name="search" ngModel placeholder="Search">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand"routerLink="/">Shop Cars</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarColor02">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active" *ngIf="isLogged">
-          <a class="nav-link" routerLink="/create">Create</a>
-        </li>
-        <li class="nav-item active" *ngIf="isLogged">
-          <a class="nav-link" routerLink="/profile">{{userEmail}}</a>
-        </li>
-        <li class="nav-item" *ngIf="!isLogged">
-          <a class="nav-link" routerLink="/singin">SingIn</a>
-        </li>
-        <li class="nav-item" *ngIf="!isLogged">
-          <a class="nav-link" routerLink="/singup">SingUp</a>
-        </li>
-        <li class="nav-item" *ngIf="isLogged">
-          <a class="nav-link" routerLink="" (click)="logout()">Logout</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
+<header class="bg-primary py-5 mb-5">
+
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-lg-12">
+        <h1 class="display-4 text-white mt-5 mb-2">Shop Cars</h1>
+        <p class="lead mb-5 text-white">Sell your car quickly in Shop Cars.</p>
+      </div>
     </div>
-  </nav>
+  </div>
+</header>
 
+<div class="row" *ngIf="isSearch">
   
+  
+  <div class="col-md-4 mb-5" *ngFor='let adCar of resulr'>
+    <div class="card h-100">
+      <img class="card-img-top" [src]="adCar.imgUrl" alt="">
+      <div class="card-body">
+        <h4 class="card-title">{{adCar.model}}</h4>
+        <h5 class="card-price">{{adCar.price}} €</h5>
+        <p class="card-text">{{adCar.description}}</p>
+      </div>
+      <div class="card-footer">
+        <a routerLink='/detail/{{adCar._id}}' class="btn btn-primary">More Info</a>
+      </div>
+    </div>
+  </div>
+
+
+</div>

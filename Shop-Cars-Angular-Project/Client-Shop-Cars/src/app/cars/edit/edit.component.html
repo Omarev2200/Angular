@@ -5,7 +5,7 @@
           <div class="card-body">
             <h5 class="card-title text-center">Edit Ad Car</h5>
             <form #editForm='ngForm' class="form-signin" (ngSubmit)="editAdCarHandler(editForm.value)">
-              <label for="inputEmail">
+              <label for="modelInput">
                 Model
               </label>
               <div class="form-label-group">
@@ -14,16 +14,16 @@
                 type="text" 
                 [(ngModel)]='adCar.model'
                 name='model' 
-                
+                minlength="3"
                 id="inputModel" 
                 class="form-control"
                 required>
               </div>
-              <!-- <div class="alert alert-danger" role="alert" *ngIf="emailInput.invalid && emailInput.touched">
-                Please enter valid email!
-              </div> -->
+              <div class="alert alert-danger" role="alert" *ngIf="modelInput.invalid && modelInput.touched">
+                Please enter min 3 letters !
+              </div>
 
-              <label for="inputEmail">
+              <label for="priceInput">
                 Price
               </label>
               <div class="form-label-group">
@@ -32,12 +32,16 @@
                 type="text" 
                 [(ngModel)]='adCar.price' 
                 name='price' 
+                pattern = "[0-9]+"
                 id="inputPrice" 
                 class="form-control"
                 required>
               </div>
+              <div class="alert alert-danger" role="alert" *ngIf="priceInput.invalid && priceInput.touched">
+                Please enter only numbers!
+              </div>
               
-              <label for="inputEmail">
+              <label for="imgUrlInput">
                 ImgUrl
               </label>
               <div class="form-label-group">
@@ -46,13 +50,18 @@
                 type="text" 
                 [(ngModel)]='adCar.imgUrl' 
                 name='imgUrl' 
+                placeholder="https://..."
+                pattern="https?:\/\/.*"
                 id="inputImgUrl" 
                 class="form-control"
                 required>
               </div>
+              <div class="alert alert-danger" role="alert" *ngIf="imgUrlInput.invalid && imgUrlInput.touched">
+                Please enter only :https://
+              </div>
               
 
-              <label for="inputEmail">
+              <label for="mileageInput">
                 Mileage
               </label>
               <div class="form-label-group">
@@ -62,12 +71,16 @@
                 [(ngModel)]='adCar.mileage' 
                 name='mileage' 
                 id="inputMileage" 
+                pattern = "[0-9]+"
                 class="form-control"
                 required>
               </div>
+              <div class="alert alert-danger" role="alert" *ngIf="mileageInput.invalid && mileageInput.touched">
+                Please enter only numbers!
+              </div>
               
   
-              <label for="inputEmail">
+              <label for="yearInput">
                 Year
               </label>
               <div class="form-label-group">
@@ -77,12 +90,16 @@
                 [(ngModel)]='adCar.year' 
                 name='year' 
                 id="inputYear" 
+                pattern = "[0-9]+"
                 class="form-control"
                 required>
               </div>
+              <div class="alert alert-danger" role="alert" *ngIf="yearInput.invalid && yearInput.touched">
+                Please enter only numbers!
+              </div>
               
 
-              <label for="inputEmail">
+              <label for="descriptionInput">
                 Description
               </label>
               <div class="form-label-group">
@@ -92,12 +109,18 @@
                 [(ngModel)]='adCar.description' 
                 name='description' 
                 id="inputDescription" 
+                placeholder="max letters 50"
+                minlength="10"
+                maxlength="50"
                 class="form-control"
                 required>
               </div>
+              <div class="alert alert-danger" role="alert" *ngIf="descriptionInput.invalid && descriptionInput.touched">
+                Please enter min 10 letters !
+              </div>
               
 
-              <label for="inputEmail">
+              <label for="contactlInput">
                 Contact
               </label>
               <div class="form-label-group">
@@ -111,7 +134,7 @@
                 required>
               </div>
 
-              <label for="inputEmail">
+              <label for="enginelInput">
                 Engine
               </label>
               <div class="form-label-group">
@@ -125,7 +148,7 @@
                 required>
               </div>
 
-              <label for="inputEmail">
+              <label for="speedlInput">
                 Speed
               </label>
               <div class="form-label-group">
@@ -134,12 +157,16 @@
                 type="text" 
                 [(ngModel)]='adCar.speed' 
                 name='speed' 
+                pattern = "[0-9]+"
                 id="inputSpeed" 
                 class="form-control"
                 required>
               </div>
+              <div class="alert alert-danger" role="alert" *ngIf="speedlInput.invalid && speedlInput.touched">
+                Please enter only numbers!
+              </div>
 
-              <label for="inputEmail">
+              <label for="colorlInput">
                 Color
               </label>
               <div class="form-label-group">
@@ -154,7 +181,7 @@
               </div>
               
               
-              <button  class="btn btn-lg btn-primary btn-block text-uppercase" > 
+              <button [disabled]="editForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase" > 
                 Edit
               </button>
             </form>

@@ -6,27 +6,26 @@ import { UserService } from './user/user.service';
 @Injectable({
   providedIn: 'root'
 })
-export class SingInsingUpGuard implements CanActivate {
+export class AuthGuard implements CanActivate {
 
   constructor(private userService:UserService,
     private router:Router) {
 
   }
   canActivate(
-    next: ActivatedRouteSnapshot,
+    route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return this.check();
+    return this.check()
+    // userService.isLogged === route.data.isLogged;
   }
 
   check() : boolean {
 
     if (this.userService.isLogged) {
-      console.log('true')
-
       return true;
     }
-    this.router.navigate(['']);
-        
+
+    this.router.navigate(['singin'])
     return false;
   }
   

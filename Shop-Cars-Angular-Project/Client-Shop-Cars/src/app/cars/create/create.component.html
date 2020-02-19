@@ -16,10 +16,12 @@
                 name='model' 
                 id="inputModel" 
                 class="form-control"
+                
+                minlength="3"
                 required>
               </div>
               <div class="alert alert-danger" role="alert" *ngIf="modelInput.invalid && modelInput.touched">
-                Please enter valid email!
+                Please enter min 3 letters !
               </div>
 
               <label for="priceInput">
@@ -109,12 +111,13 @@
                 name='description' 
                 id="inputDescription" 
                 class="form-control"
-                min="10"
-                max="50"
+                placeholder="max letters 50"
+                minlength="10"
+                maxlength="50"
                 required>
               </div>
               <div class="alert alert-danger" role="alert" *ngIf="descriptionInput.invalid && descriptionInput.touched">
-                Please enter min 10 letters max 50 !
+                Please enter min 10 letters !
               </div>
               
 
@@ -146,7 +149,7 @@
                 required>
               </div>
 
-              <label for="inputEmail">
+              <label for="speedlInput">
                 Speed
               </label>
               <div class="form-label-group">
@@ -155,9 +158,13 @@
                 type="text" 
                 ngModel 
                 name='speed' 
+                pattern = "[0-9]+"
                 id="inputSpeed" 
                 class="form-control"
                 required>
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="speedlInput.invalid && speedlInput.touched">
+                Please enter only numbers!
               </div>
 
               <label for="inputEmail">
@@ -175,7 +182,7 @@
               </div>
               
               
-              <button  class="btn btn-lg btn-primary btn-block text-uppercase">
+              <button [disabled]="createForm.invalid" class="btn btn-lg btn-primary btn-block text-uppercase">
                 Create
               </button>
             </form>

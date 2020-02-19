@@ -19,16 +19,8 @@ export class SingInComponent   {
    handleSubmit(data) {
     
     this.userService.login(data.email, data.password).subscribe(value => {
-      console.log(value);
-    },
-    err => {
-      console.log('Oops:', err.message);
-    },
-    () => {
-      console.log(`We're done here!`);
+      this.toastr.success('success', 'Login')
+      this.router.navigate([''])
     });
-
-  
-
 }
 }

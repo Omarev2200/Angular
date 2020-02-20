@@ -14,7 +14,7 @@
         <a class="nav-link" routerLink="/myAdCars/{{userId}}">My Ad Cars</a>
       </li>
       <li class="nav-item active" *ngIf="isLogged">
-        <a class="nav-link" routerLink="/profile">{{userEmail}}</a>
+        <a class="nav-link" routerLink="/profile/{{userId}}">{{userEmail}}</a>
       </li>
       <li class="nav-item" *ngIf="!isLogged">
         <a class="nav-link" routerLink="/singin">SingIn</a>

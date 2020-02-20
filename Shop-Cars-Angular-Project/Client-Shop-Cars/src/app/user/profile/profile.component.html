@@ -6,32 +6,65 @@
       </div>
       <div class="panel-footer">
   
-        <form  #form>
+        <form  #form='ngForm' (ngSubmit)="editProfile(form.value)">
           <div class="form-group">
-            <label for="email">New address</label>
-            <input  type="text" id="newEmail" class="form-control"
-              placeholder="john.doe@domain.bg">
-            <p class="error-message" >Please enter valid
-              gmail.com email!
-            </p>
+            <label 
+            for="emailInput">New address
+          </label>
+          
+            <input  
+            #emailInput="ngModel" 
+            ngModel 
+            name='email'
+            type="text" 
+            id="newEmail" 
+            class="form-control"
+            pattern="[a-zA-Z0-9.-_]{6,}@[a-z]+\.[a-z]+"
+            >
+            <div class="alert alert-danger" role="alert"
+              *ngIf="emailInput.invalid && emailInput.touched">
+              Please enter valid  email!
+              </div>
           </div>
           <div>
             <div class="form-group">
-              <label for="password">New Password</label>
+              <label for="passwordInput">New Password</label>
               <input
-                type="password" id="password" class="form-control" placeholder="************">
-            </div>
-            <div class="form-group">
-              <label for="rePassword">Re-Password</label>
-              <input
-                 type="password" id="rePassword" class="form-control"
+               #passwordInput="ngModel" 
+                ngModel 
+                name="password" 
+                pattern="^[A-Za-z\d]{5,16}$"
+                type="password"
+                id="password" 
+                class="form-control" 
                 placeholder="************">
             </div>
+            <div class="alert alert-danger" role="alert"
+              *ngIf="passwordInput.invalid && passwordInput.touched"
+              >
+              Password must contain only letters and digits and must between 5 and 16 symbols!
+              </div> 
+            <div class="form-group">
+              <label for="rePasswordInput">Re-Password</label>
+              <input
+                #rePasswordInput="ngModel"  
+                 ngModel 
+                 name="rePassword" 
+                 type="password" 
+                 id="rePassword" 
+                 class="form-control"
+                 placeholder="************">
+            </div>
+            <div class="alert alert-danger" role="alert"
+              *ngIf="passwordInput.value !== rePasswordInput.value && rePasswordInput.touched"
+              >
+              Bot password must match!
+              </div>
             <p class="error-message" >Passwords
               don't
               match!</p>
           </div>
-          <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Change profile information</button>
+          <button [disabled]="form.invalid"  class="btn btn-primary">Change profile information</button>
         </form>
   
       

@@ -22,47 +22,18 @@ const routes: Routes = [
   {
     path: 'singin',
     component: SingInComponent,
-    
   },
   {
     path: 'singup',
     component: SingUpComponent,
-    
-   
-    
   },
   {
-    path: 'create',
-    component: CreateComponent,
-    canActivate:[AuthGuard],
-   
-
-  },
-  {
-    path: 'detail/:id',
-    component: DetailsComponent
-    
-  },
-  {
-    path: 'edit/:id',
-    component: EditComponent
-    
-  },
-  {
-    path: 'myAdCars/:id',
-    component: MyAdCarsComponent,
-    canActivate:[AuthGuard]
-    
-  },
-  {
-    path: 'profile',
+    path: 'profile/:id',
     component: ProfileComponent,
     canActivate:[AuthGuard],
    
-
-    
   },
-  
+
   {
     path: '**',
     component: NotFoundComponent

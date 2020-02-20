@@ -40,7 +40,7 @@ module.exports = {
       console.log('-'.repeat(100));
       models.TokenBlacklist.create({ token })
         .then(() => {
-          res.clearCookie(config.authCookieName).send('Logout successfully!');
+          res.clearCookie(config.authCookieName).send({ logoutSuccess: true });
         })
         .catch(next);
     }
@@ -48,8 +48,8 @@ module.exports = {
 
   put: (req, res, next) => {
     const id = req.params.id;
-    const { username, password } = req.body;
-    models.User.update({ _id: id }, { username, password })
+    const { email, password } = req.body;
+    models.User.update({ _id: id }, { email, password })
       .then((updatedUser) => res.send(updatedUser))
       .catch(next)
   },

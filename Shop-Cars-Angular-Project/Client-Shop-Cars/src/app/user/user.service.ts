@@ -36,6 +36,9 @@ export class UserService {
       
     }));
   }
+  editUser(userId:string, data) {
+    return this.http.put(`user/${userId}`,data)
+  }
 
   logout() {
     return this.http.post('user/logout', {}).pipe(tap(() => {

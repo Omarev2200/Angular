@@ -9,17 +9,16 @@ import { ICar } from '../shared/car';
 })
 export class HomeComponent implements OnInit {
 
- adCars:ICar;
+  adCars: ICar;
 
-  constructor(private carsService:AdCarsService) { }
+  constructor(private carsService: AdCarsService) { }
 
   ngOnInit(): void {
     this.carsService.load().subscribe(data => {
-      this.adCars=data;
+      this.adCars = data;
+      console.log(this.adCars);
       
-      
-      
-      
+
     }
 
 

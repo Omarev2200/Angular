@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-sing-in',
   templateUrl: './sing-in.component.html',
-  styleUrls: ['./sing-in.component.css']
+  styleUrls: ['./sing-in.component.css','../../err.css']
 })
 export class SingInComponent   {
 

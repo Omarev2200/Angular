@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
 
 
 
@@ -13,7 +14,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
      NavigationComponent,
      FooterComponent,
-     SpinnerComponent
+     SpinnerComponent,
+     SearchComponent
     ],
   imports: [
     CommonModule,
@@ -23,7 +25,8 @@ import { FormsModule } from '@angular/forms';
   exports:[
     NavigationComponent,
     FooterComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SearchComponent
   ]
  
 })

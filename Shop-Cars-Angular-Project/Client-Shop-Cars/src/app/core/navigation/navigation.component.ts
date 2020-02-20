@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { UserService } from 'src/app/user/user.service';
 import { Router } from '@angular/router';
 import { AdCarsService } from 'src/app/cars/ad-cars.service';
+import { ICar } from 'src/app/shared/car';
 
 @Component({
   selector: 'app-navigation',
@@ -9,7 +10,7 @@ import { AdCarsService } from 'src/app/cars/ad-cars.service';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-
+  
   get isLogged() { return this.userService.isLogged; }
   get userEmail() { return this.userService.currentUser.email }
   get userId() { return this.userService.currentUser._id}
@@ -27,6 +28,7 @@ export class NavigationComponent implements OnInit {
 
   search(query) {
     if (query.search === '') {
+      console.log(this.resulr);
       return 
     } else {
       this.resulr = [];
@@ -34,6 +36,7 @@ export class NavigationComponent implements OnInit {
         this.searchResult = data;
         this.resulr = this.searchResult.articles;
         this.isSearch = true;
+        
 
       })
     }

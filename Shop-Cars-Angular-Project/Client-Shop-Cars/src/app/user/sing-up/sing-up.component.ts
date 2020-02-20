@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-sing-up',
   templateUrl: './sing-up.component.html',
-  styleUrls: ['./sing-up.component.css']
+  styleUrls: ['./sing-up.component.css','../../err.css']
 })
 export class SingUpComponent implements OnInit {
 

@@ -9,8 +9,10 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./my-ad-cars.component.css']
 })
 export class MyAdCarsComponent implements OnInit {
-  adCars: ICar;
+  adCars: any;
   userId: string;
+  get checkAdCars(){return !!this.adCars.length}
+
   constructor(private adCarsService: AdCarsService, private userService: UserService) { }
 
   ngOnInit(): void {

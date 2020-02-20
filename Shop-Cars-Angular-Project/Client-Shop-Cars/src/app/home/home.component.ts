@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdCarsService } from '../cars/ad-cars.service';
 import { ICar } from '../shared/car';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -9,17 +10,21 @@ import { ICar } from '../shared/car';
 })
 export class HomeComponent implements OnInit {
 
-  adCars: ICar;
+  adCars: any;
 
-  constructor(private carsService: AdCarsService) { }
+  get checkAdCars(){return !!this.adCars.length}
+
+  constructor(private carsService: AdCarsService, private userService: UserService) { }
 
   ngOnInit(): void {
+    
     this.carsService.load().subscribe(data => {
       this.adCars = data;
-      console.log(this.adCars);
+      console.log(!!this.adCars.length);
       
-
+      
     }
+    
 
 
     )

@@ -15,6 +15,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { AppInterceptor } from './app-interceptor';
 import { FormsModule } from '@angular/forms';
+import { ErrorInterceptor } from './shared/error.interceptor';
 
 
 
@@ -45,7 +46,13 @@ import { FormsModule } from '@angular/forms';
       provide: HTTP_INTERCEPTORS,
       useClass: AppInterceptor,
       multi: true
-    }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    },
+    
   ],
   bootstrap: [AppComponent]
 })

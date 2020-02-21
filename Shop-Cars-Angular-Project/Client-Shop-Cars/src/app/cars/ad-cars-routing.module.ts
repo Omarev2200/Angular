@@ -4,7 +4,7 @@ import { AuthGuard } from '../auth.guard';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { MyAdCarsComponent } from './my-ad-cars/my-ad-cars.component';
-import { ProfileComponent } from '../user/profile/profile.component';
+
 
 const routes: Routes = [
     {

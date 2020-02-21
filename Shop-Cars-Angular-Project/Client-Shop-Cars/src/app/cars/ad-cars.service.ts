@@ -36,6 +36,7 @@ export class AdCarsService {
 
   fineAdCars(query) {
     return this.http.get(`car/search?q=${query}`)
+    
   }
 
   deleteAdCar(adCarId: string) {

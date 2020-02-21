@@ -4,16 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { SingInComponent } from '../user/sing-in/sing-in.component';
 import { SingUpComponent } from '../user/sing-up/sing-up.component';
-import { ProfileComponent } from '../user/profile/profile.component';
+
 
 
 
 @NgModule({
   declarations: [
     SingInComponent,
-    SingUpComponent,
-    ProfileComponent,
-    
+    SingUpComponent,    
   ],
   imports: [
     CommonModule,
@@ -23,7 +21,6 @@ import { ProfileComponent } from '../user/profile/profile.component';
   exports:[
     SingInComponent,
     SingUpComponent,
-    ProfileComponent,
   ]
  
 })

@@ -14,7 +14,7 @@
         <a class="nav-link" routerLink="/myAdCars/{{userId}}">My Ad Cars</a>
       </li>
       <li class="nav-item active" *ngIf="isLogged">
-        <a class="nav-link" routerLink="/profile/{{userId}}">{{userEmail}}</a>
+        <a class="nav-link" >{{userEmail}}</a>
       </li>
       <li class="nav-item" *ngIf="!isLogged">
         <a class="nav-link" routerLink="/singin">SingIn</a>
@@ -22,12 +22,13 @@
       <li class="nav-item" *ngIf="!isLogged">
         <a class="nav-link" routerLink="/singup">SingUp</a>
       </li>
+      <div *ngIf="isLogged" class="text-underline panel-body panel-primary">
+        <span class="text-bold"></span>
+       <a class="float-right custom-button btn btn-danger" (click)="logout()">Logout</a>
+     </div>
       
     </ul>
-    <form #formSearch='ngForm' class="form-inline my-2 my-lg-0" (submit)='search(formSearch.value)'>
-      <input class="form-control mr-sm-2" type="text" name="search" ngModel placeholder="Search">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit" routerLink="/search">Search</button>
-  </form>
+    
   </div>
   
 </nav>
@@ -35,20 +36,3 @@
 
 
 
-<div class="row" *ngIf="isSearch">
-  <div class="col-md-4 mb-5" *ngFor='let adCar of resulr'>
-    <div class="card h-100">
-      <img class="card-img-top" [src]="adCar.imgUrl" alt="">
-      <div class="card-body">
-        <h4 class="card-title">{{adCar.model}}</h4>
-        <h5 class="card-price">{{adCar.price}} €</h5>
-        <p class="card-text">{{adCar.description}}</p>
-      </div>
-      <div class="card-footer">
-        <a routerLink='/detail/{{adCar._id}}' class="btn btn-primary">More Info</a>
-      </div>
-    </div>
-  </div>
-
-
-</div>

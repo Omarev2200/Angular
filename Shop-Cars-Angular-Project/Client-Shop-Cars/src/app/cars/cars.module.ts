@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { CheckPipe } from './check.pipe';
 import { MyAdCarsComponent } from './my-ad-cars/my-ad-cars.component';
 import { AdCarsRoutingModule } from './ad-cars-routing.module';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 
 
@@ -22,6 +23,7 @@ import { AdCarsRoutingModule } from './ad-cars-routing.module';
     EditComponent,
     CheckPipe,
     MyAdCarsComponent,
+    CapitalizePipe
     
   ],
   imports: [
@@ -36,6 +38,7 @@ import { AdCarsRoutingModule } from './ad-cars-routing.module';
     DetailsComponent, 
     EditComponent,
     MyAdCarsComponent,
+    CapitalizePipe
     
   ]
  

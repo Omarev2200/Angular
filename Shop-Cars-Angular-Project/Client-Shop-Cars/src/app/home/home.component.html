@@ -8,16 +8,44 @@
     </div>
   </div>
 </header>
+<form #formSearch='ngForm' class="form-inline my-2 my-lg-0" (submit)='search(formSearch.value)'>
+  <input class="form-control mr-sm-2" type="text" name="search" ngModel placeholder="Search">
+  <button class="btn btn-secondary my-2 my-sm-0" type="submit" >Search</button>
+</form>
 
-<div *ngIf="!adCars"><app-spinner></app-spinner></div>
-<div *ngIf="adCars">
- 
+<div *ngIf="!adCars">
+  <app-spinner></app-spinner>
 </div>
+
+<div>
+  <div class="messag" *ngIf="isSearch">
+    <h1>Result</h1>
+  </div>
+<div class="row" *ngIf="isSearch">
+  <div class="col-md-4 mb-5" *ngFor='let adCar of resulr'>
+    <div class="card h-100">
+      <img class="card-img-top" [src]="adCar.imgUrl" alt="">
+      <div class="card-body">
+        <h4 class="card-title">{{adCar.model}}</h4>
+        <h5 class="card-price">{{adCar.price}} €</h5>
+        <p class="card-text">{{adCar.description}}</p>
+      </div>
+      <div class="card-footer">
+        <a routerLink='/detail/{{adCar._id}}' class="btn btn-primary">More Info</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 
 <div *ngIf="!checkAdCars" class="messag">
-<h1>No ads have been published yet !</h1>
+  <h1>No ads have been published yet !</h1>
 </div>
-<div class="row" *ngIf="adCars">  
+<div class="messag">
+  <h1>All ad Cars</h1>
+</div>
+<div class="row" *ngIf="adCars">
   <div class="col-md-4 mb-5" *ngFor='let adCar of adCars'>
     <div class="card h-100">
       <img class="card-img-top" [src]="adCar.imgUrl" alt="">

@@ -33,7 +33,7 @@ id : string;
     this.adCarsService.getById(this.id)
     .subscribe(data => {
       this.adCar = data;
-      console.log(this.adCar);
+      
       
 
       

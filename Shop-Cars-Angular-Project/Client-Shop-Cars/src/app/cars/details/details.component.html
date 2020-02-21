@@ -4,7 +4,7 @@
 
   <!-- Portfolio Item Heading -->
   <h1 class="my-4">{{adCar.model}}
-    <small>€{{adCar.price}}</small>
+    <small>€ {{adCar.price}}</small>
   </h1>
 
   <!-- Portfolio Item Row -->
@@ -19,11 +19,12 @@
       <p>{{adCar.description}}</p>
       <h3 class="my-3">Other  Details</h3>
       <ul>
-        <li>Price: {{adCar.price}}</li>
+        <li>Price: {{adCar.price}}€</li>
         <li>Year: {{adCar.year}}</li>
-        <li>Engine: {{adCar.engine}}</li>
-        <li>Speed: {{adCar.speed}}</li>
-        <li>Color: {{adCar.color}}</li>
+        <li>Mileage: {{adCar.mileage}} km.</li>
+        <li>Engine: {{adCar.engine | capitalize}}</li>
+        <li>Speed: {{adCar.speed}}p/h</li>
+        <li>Color: {{adCar.color | capitalize}}</li>
       </ul>
       <div *ngIf="adCar | check">
           <button type="button" class="btn btn-danger btn-lg btn-block" (click)=deletAdCar()>Delete</button>

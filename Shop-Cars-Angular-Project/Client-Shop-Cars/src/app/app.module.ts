@@ -21,11 +21,13 @@ import { ErrorInterceptor } from './shared/error.interceptor';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     NotFoundComponent,
     HomeComponent,
+    
     
   ],
   imports: [

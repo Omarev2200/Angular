@@ -20,7 +20,7 @@ export class MyAdCarsComponent implements OnInit {
     this.userId = this.userService.currentUser._id
     this.adCarsService.getMyAdCars(this.userId).subscribe((data) => {
       this.adCars = data;
-      console.log('this.userId ');
+      
       
     })
   }

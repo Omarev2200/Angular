@@ -22,10 +22,11 @@
       <li class="nav-item" *ngIf="!isLogged">
         <a class="nav-link" routerLink="/singup">SingUp</a>
       </li>
-      <div *ngIf="isLogged" class="text-underline panel-body panel-primary">
+      <div  *ngIf="isLogged" class="text-underline panel-body panel-primary">
         <span class="text-bold"></span>
-       <a class="float-right custom-button btn btn-danger" (click)="logout()">Logout</a>
+       <a  class="float-right custom-button btn btn-danger" (click)="logout()">Logout</a>
      </div>
+    
       
     </ul>
     

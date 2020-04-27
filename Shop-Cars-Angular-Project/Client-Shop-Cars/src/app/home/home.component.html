@@ -22,7 +22,7 @@
     <h1>Result</h1>
   </div>
 <div class="row" *ngIf="isSearch">
-  <div class="col-md-4 mb-5" *ngFor='let adCar of resulr'>
+  <div class="col-md-4 mb-5" *ngFor='let adCar of result'>
     <div class="card h-100">
       <img class="card-img-top" [src]="adCar.imgUrl" alt="">
       <div class="card-body">
@@ -31,7 +31,7 @@
         <p class="card-text">{{adCar.description}}</p>
       </div>
       <div class="card-footer">
-        <a routerLink='/detail/{{adCar._id}}' class="btn btn-primary">More Info</a>
+        <a routerLink='/car/detail/{{adCar._id}}' class="btn btn-primary">More Info</a>
       </div>
     </div>
   </div>
@@ -55,7 +55,7 @@
         <p class="card-text">{{adCar.description}}</p>
       </div>
       <div class="card-footer">
-        <a routerLink='/detail/{{adCar._id}}' class="btn btn-primary">More Info</a>
+        <a routerLink='/car/detail/{{adCar._id}}' class="btn btn-primary">More Info</a>
       </div>
     </div>
   </div>

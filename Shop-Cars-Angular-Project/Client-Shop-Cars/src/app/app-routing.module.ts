@@ -17,15 +17,15 @@ const routes: Routes = [
     pathMatch: 'full',
     component: HomeComponent
   },
+  
   {
-    path: 'singin',
-    component: SingInComponent,
-    
-    
+    path: 'user',
+    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   },
+
   {
-    path: 'singup',
-    component: SingUpComponent,
+    path: 'car',
+    loadChildren: () => import('./cars/cars.module').then(m => m.CarsModule)
   },
 
   {

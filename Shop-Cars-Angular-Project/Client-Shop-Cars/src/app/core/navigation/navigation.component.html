@@ -8,19 +8,19 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active" *ngIf="isLogged">
-        <a class="nav-link" routerLink="/create">Create</a>
+        <a class="nav-link" routerLink="/car/create">Create</a>
       </li>
       <li class="nav-item active" *ngIf="isLogged">
-        <a class="nav-link" routerLink="/myAdCars/{{userId}}">My Ad Cars</a>
+        <a class="nav-link" routerLink="/car/myAdCars/{{userId}}">My Ad Cars</a>
       </li>
       <li class="nav-item active" *ngIf="isLogged">
         <a class="nav-link" >{{userEmail}}</a>
       </li>
       <li class="nav-item" *ngIf="!isLogged">
-        <a class="nav-link" routerLink="/singin">SingIn</a>
+        <a class="nav-link" routerLink="/user/singin">SingIn</a>
       </li>
       <li class="nav-item" *ngIf="!isLogged">
-        <a class="nav-link" routerLink="/singup">SingUp</a>
+        <a class="nav-link" routerLink="/user/singup">SingUp</a>
       </li>
       <div  *ngIf="isLogged" class="text-underline panel-body panel-primary">
         <span class="text-bold"></span>

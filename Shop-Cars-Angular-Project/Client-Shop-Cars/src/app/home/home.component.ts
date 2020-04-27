@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit,  OnDestroy {
 
   adCars: any;
   searchResult: any;
-  resulr: [];
+  result: [];
   isSearch: boolean;
   adCars$
 
@@ -36,11 +36,11 @@ export class HomeComponent implements OnInit,  OnDestroy {
     if (query.search === '') {
       return 
     } else {
-      this.resulr = [];
+      this.result = [];
       this.adCarsService.fineAdCars(query.search)
       .subscribe((data) => {
         this.searchResult = data;
-        this.resulr = this.searchResult.articles;
+        this.result = this.searchResult.articles;
         this.isSearch = true;
       })
     }

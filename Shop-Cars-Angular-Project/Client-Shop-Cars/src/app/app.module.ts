@@ -1,35 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AlertModule, } from 'ngx-bootstrap'; 
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations'; 
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AlertModule } from "ngx-bootstrap";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import {CoreModule} from './core/core.module'
-import { UserModule } from './user/user.module';
-import { CarsModule } from './cars/cars.module';
-import {ToastrModule} from 'ngx-toastr'
+import { CoreModule } from "./core/core.module";
+import { ToastrModule } from "ngx-toastr";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { HomeComponent } from './home/home.component';
-import { AppInterceptor } from './app-interceptor';
-import { FormsModule } from '@angular/forms';
-import { ErrorInterceptor } from './shared/error.interceptor';
-
-
-
-
-
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
+import { HomeComponent } from "./home/home.component";
+import { AppInterceptor } from "./app-interceptor";
+import { FormsModule } from "@angular/forms";
+import { ErrorInterceptor } from "./shared/error.interceptor";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NotFoundComponent,
-    HomeComponent,
-    
-    
-  ],
+  declarations: [AppComponent, NotFoundComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -38,24 +25,20 @@ import { ErrorInterceptor } from './shared/error.interceptor';
     BrowserAnimationsModule,
     AlertModule.forRoot(),
     CoreModule,
-    UserModule,
-    CarsModule,
-    FormsModule
-    
+    FormsModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AppInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
-      multi: true
+      multi: true,
     },
-    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

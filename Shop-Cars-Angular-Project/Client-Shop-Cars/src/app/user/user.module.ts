@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { SingInComponent } from '../user/sing-in/sing-in.component';
 import { SingUpComponent } from '../user/sing-up/sing-up.component';
+import { UserRoutingModule } from './user-routing.module';
 
 
 
@@ -15,7 +16,8 @@ import { SingUpComponent } from '../user/sing-up/sing-up.component';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    UserRoutingModule
     
   ],
   exports:[

@@ -29,7 +29,7 @@ export class NavigationComponent implements OnInit {
   logout() {
     this.userService.logout().subscribe(() => {
 
-      this.router.navigate(['singin']);
+      this.router.navigate(['user/singin']);
 
     });
   }

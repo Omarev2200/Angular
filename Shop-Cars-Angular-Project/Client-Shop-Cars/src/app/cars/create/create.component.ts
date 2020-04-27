@@ -24,7 +24,7 @@ export class CreateComponent implements OnInit {
 
     this.adCarsService.create(data).subscribe(() => {
       this.toastr.success('success', 'Create')
-      this.router.navigate([`/myAdCars/${this.id}`]);
+      this.router.navigate([`/car/myAdCars/${this.id}`]);
     });
 
   };

@@ -36,7 +36,7 @@ export class EditComponent implements OnInit {
     this.adCarsService.editSdCar(this.id,data)
     .subscribe(()=> {
       this.toastr.success('success', 'Edit')
-      this.router.navigate([`/myAdCars/${this.id}`])
+      this.router.navigate([`/car/myAdCars/${this.id}`])
     })
   }
 

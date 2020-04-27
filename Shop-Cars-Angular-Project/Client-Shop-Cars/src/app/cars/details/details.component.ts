@@ -33,7 +33,7 @@ export class DetailsComponent implements OnInit {
   deletAdCar() {
     this.adCarsService.deleteAdCar(this.id).subscribe(data => {
       this.toastr.success("success", "Delete");
-      this.router.navigate([`/myAdCars/${this.id}`]);
+      this.router.navigate([`/car/myAdCars/${this.id}`]);
       console.log(data);
     });
   }
